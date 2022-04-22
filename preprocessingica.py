@@ -127,7 +127,7 @@ ica = ICA(method='fastica', max_iter="auto").fit(epochs_forica)
 
 ica.plot_components()
 
-#ica.plot_properties(epochs_forica)
+ica.plot_properties(epochs_forica)
 
 ##### Select which components to remove 
 
@@ -136,6 +136,8 @@ ica.exclude = eval(input('List of ICA Components to exclude (example : [1,2,3] w
 #ica.exclude = [0,2,3]
 ### Apply ICA on the raw (unfiltered, no baseline correction) Data 
 ica.apply(raw)
+
+ica.plot_overlay(raw, picks=['C3','C4','Cz'])
 
 ### Finally filter the data 
 
